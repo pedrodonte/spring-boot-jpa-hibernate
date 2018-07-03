@@ -19,6 +19,7 @@ public class SoccerServiceImpl implements SoccerService {
 	@Autowired
 	private TeamRepository teamRepository;
 
+	
 	public List<String> getAllTeamPlayers(long teamId) {
 		List<String> result = new ArrayList<String>();
 		List<Player> players = playerRepository.findByTeamId(teamId);
@@ -31,7 +32,7 @@ public class SoccerServiceImpl implements SoccerService {
 
 	public void addBarcelonaPlayer(String name, String position, int number) {
 		
-		Team barcelona = teamRepository.findOne(1l);
+		Team barcelona = teamRepository.findByPlayers(1l);
 		
 		Player newPlayer = new Player();
 		newPlayer.setName(name);
